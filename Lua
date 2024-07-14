@@ -1,0 +1,18 @@
+-- Get the player
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Set the teleport distance
+local teleportDistance = 10 -- Teleport forward by 10 meters
+
+-- Function to teleport the character forward
+local function teleportForward()
+    -- Calculate the new position
+    local newPosition = humanoidRootPart.CFrame * CFrame.new(0, 0, -teleportDistance)
+    -- Teleport the character
+    humanoidRootPart.CFrame = newPosition
+end
+
+-- Teleport forward
+teleportForward()
